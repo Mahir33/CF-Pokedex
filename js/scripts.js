@@ -81,10 +81,28 @@ const pokemonList = [
     }
 ];
 
+// Solution with ternary operator:
+// for(let i= 0; i < pokemonList.length; i++){
+//     document.write(
+//         `${pokemonList[i].name} (height: ${pokemonList[i].height}) 
+//         ${pokemonList[i].height > 1.5 ? "- Wow, that's big!" : ""} 
+//         <br>`
+//     );
+// }
+
+// Solution with if statement:
+
+let message = "";
+
 for(let i= 0; i < pokemonList.length; i++){
+    if(pokemonList[i].height > 1.5){
+        message = "- Wow, that's big!";
+    } else {
+        message = "";
+    }
     document.write(
         `${pokemonList[i].name} (height: ${pokemonList[i].height}) 
-        ${pokemonList[i].height > 1.5 ? "- Wow, that's big!" : ""} 
+        ${message} 
         <br>`
     );
 }
