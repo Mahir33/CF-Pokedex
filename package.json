@@ -1,0 +1,14 @@
+{
+  "name": "cf-pokedex",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "nodemon ./js/scripts.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
