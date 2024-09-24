@@ -1,4 +1,6 @@
-let pokemonList = [
+/* jshint esversion: 6 */
+
+const pokemonList = [
     {
         id: 0o0001,
         name: 'Bulbasaur',
@@ -10,7 +12,7 @@ let pokemonList = [
         speed: 45,
         height: 0.7,
         types: ['grass', 'poison'],
-        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/bulbasaur.avif",
+        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/bulbasaur.avif"
     },
     {
         id: 0o0002,
@@ -23,7 +25,7 @@ let pokemonList = [
         speed: 60,
         height: 1,
         types: ['grass', 'poison'],
-        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/ivysaur.avif",
+        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/ivysaur.avif"
     },
     {
         id: 0o0003,
@@ -36,7 +38,7 @@ let pokemonList = [
         speed: 80,
         height: 2,
         types: ['grass', 'poison'],
-        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/venusaur.avif",
+        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/venusaur.avif"
     },
     {
         id: 0o0004,
@@ -49,7 +51,7 @@ let pokemonList = [
         speed: 65,
         height: 0.6,
         types: ['fire'],
-        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/charmander.avif",
+        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/charmander.avif"
     },
     {
         id: 0o0005,
@@ -62,7 +64,7 @@ let pokemonList = [
         speed: 80,
         height: 1.1,
         types: ['fire'],
-        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/charmeleon.avif",
+        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/charmeleon.avif"
     },
     {
         id: 0o0006,
@@ -75,6 +77,14 @@ let pokemonList = [
         speed: 100,
         height: 1.7,
         types: ['fire', 'flying'],
-        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/charizard.avif",
-    },
+        picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/charizard.avif"
+    }
 ];
+
+for(let i= 0; i < pokemonList.length; i++){
+    document.write(
+        `${pokemonList[i].name} (height: ${pokemonList[i].height}) 
+        ${pokemonList[i].height > 1.5 ? "- Wow, that's big!" : ""} 
+        <br>`
+    );
+}
