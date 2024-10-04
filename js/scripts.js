@@ -85,10 +85,33 @@ let pokemonRepository = (function(){
             return pokemonList;
         },
         add: function(pokemon) {
-            pokemonList.push(pokemon);
+            let pokemonDataKeys = Object.keys(pokemon);
+            let pokemonDataRequiredKeys = Object.keys(pokemonList[0]);
+            let isInputCorrect = JSON.stringify(pokemonDataKeys) === JSON.stringify(pokemonDataRequiredKeys);
+            if(typeof pokemon === "object" && isInputCorrect) {
+                pokemonList.push(pokemon);
+                console.log("Pokemon added");
+                return;
+            } else {
+                console.error('Invalid input: Expected an object.');
+                return;
+            }
+            
+        },
+        findPokemon: function(searchedPokemon) {
+            let foundPokemon = pokemonList.filter(pokemon => pokemon.name.toLowerCase() === searchedPokemon.toLowerCase());
+            if(foundPokemon.length !== 0) {
+                console.log(foundPokemon);
+                console.log(`${searchedPokemon[0] + searchedPokemon.slice(1)} was found!`)
+                return foundPokemon;
+            } else {
+                console.error('No pokemon found with the given name.');
+                return null;
+            }
         }
     }
-}())
+}
+())
 
 pokemonRepository.add({
     id: 0o0007,
@@ -104,26 +127,41 @@ pokemonRepository.add({
     picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/squirtle.avif"
 })
 
+pokemonRepository.add({
+    id: 0o0007,
+    name: 'Squirtle',
+    hp: 44,
+    attack: 48,
+    defense: 65,
+    spAttack: 50,
+    spDefense: 64,
+    speed: 43,
+    height: 0.5,
+    types: ['water'],
+    picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/squirtle.avif"
+})
+
+pokemonRepository.add({
+    id: 0o0007,
+    name: 'Squirtle',
+    hp: 44,
+    attack: 48,
+    defense: 65,
+    spAttack: 50,
+    spDefense: 64,
+    speed: 43,
+    height: 0.5,
+    types: ['water'],
+    picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/squirtle.avif"
+})
+
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.findPokemon("Squisdvsdvsrtle")
+pokemonRepository.findPokemon("Charmander") ||
+
+
+
 pokemonRepository.getAll().forEach(pokemon => {
     document.write(`${pokemon.name} (height: ${pokemon.height}) ${pokemon.height > 1.5 ? " - Wow, that's big!" : ""} <br>`);
  });
-
-
-
-// Solution with if statement:
-
-// let message = "";
-
-// for(let i= 0; i < pokemonList.length; i++){
-    
-//     if(pokemonList[i].height > 1.5){
-//         message = "- Wow, that's big!";
-//     } else {
-//         message = "";
-//     }
-
-//     document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height}) ${message} <br>`);
-// }
-
-
-
