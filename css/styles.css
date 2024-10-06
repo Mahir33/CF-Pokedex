@@ -1,0 +1,33 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+	margin: 0;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.pokemon-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+.pokemon-list li {
+	margin-bottom: 10px;
+}
+
+.pokemon-button {
+	padding: 10px 20px;
+	font-size: 16px;
+	border: none;
+	background-color: #ffcc01;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.pokemon-button:hover {
+	background-color: #ffaa01;
+}

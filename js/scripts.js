@@ -80,11 +80,10 @@ let pokemonRepository = (function(){
         }
     ];
 
-    return {
-        getAll: function(){
+    function getAll(){
             return pokemonList;
-        },
-        add: function(pokemon) {
+        }
+    function add(pokemon) {
             let pokemonDataKeys = Object.keys(pokemon);
             let pokemonDataRequiredKeys = Object.keys(pokemonList[0]);
             let isInputCorrect = JSON.stringify(pokemonDataKeys) === JSON.stringify(pokemonDataRequiredKeys);
@@ -97,8 +96,8 @@ let pokemonRepository = (function(){
                 return;
             }
             
-        },
-        findPokemon: function(searchedPokemon) {
+        }
+    function findPokemon (searchedPokemon) {
             let foundPokemon = pokemonList.filter(pokemon => pokemon.name.toLowerCase() === searchedPokemon.toLowerCase());
             if(foundPokemon.length !== 0) {
                 console.log(foundPokemon);
@@ -109,59 +108,47 @@ let pokemonRepository = (function(){
                 return null;
             }
         }
+        function addListItem(pokemon) {
+            let pokemonList = document.querySelector('.pokemon-list');
+            let listPokemon = document.createElement('li');
+            let button = document.createElement('button');
+            button.innerText = pokemon.name;
+            button.classList.add('button-class');
+            button.addEventListener('click', function () {
+                showDetails(pokemon);
+            });
+            listPokemon.appendChild(button);
+            pokemonList.appendChild(listPokemon);
+        }
+
+        function showDetails(pokemon) {
+            
+            console.log(`Name: ${pokemon.name}`);
+            console.log(`Height: ${pokemon.height} meters`);
+            console.log(`Attack: ${pokemon.attack} dmg`);
+            if (pokemon.height > 8) {
+                console.log("Wow, that's big!");
+            }
+        }
+
+    return {
+        add: add,
+        getAll: getAll,
+        findPokemon: findPokemon,
+        addListItem: addListItem,
+        showDetails: showDetails
     }
-}
-())
+}())
 
-pokemonRepository.add({
-    id: 0o0007,
-    name: 'Squirtle',
-    hp: 44,
-    attack: 48,
-    defense: 65,
-    spAttack: 50,
-    spDefense: 64,
-    speed: 43,
-    height: 0.5,
-    types: ['water'],
-    picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/squirtle.avif"
-})
 
-pokemonRepository.add({
-    id: 0o0007,
-    name: 'Squirtle',
-    hp: 44,
-    attack: 48,
-    defense: 65,
-    spAttack: 50,
-    spDefense: 64,
-    speed: 43,
-    height: 0.5,
-    types: ['water'],
-    picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/squirtle.avif"
-})
-
-pokemonRepository.add({
-    id: 0o0007,
-    name: 'Squirtle',
-    hp: 44,
-    attack: 48,
-    defense: 65,
-    spAttack: 50,
-    spDefense: 64,
-    speed: 43,
-    height: 0.5,
-    types: ['water'],
-    picture: "https://img.pokemondb.net/sprites/scarlet-violet/icon/avif/squirtle.avif"
-})
 
 console.log(pokemonRepository.getAll());
 
-pokemonRepository.findPokemon("Squisdvsdvsrtle")
-pokemonRepository.findPokemon("Charmander") ||
+// pokemonRepository.findPokemon("Squisdvsdvsrtle")
+pokemonRepository.findPokemon("Charmander") 
 
 
 
 pokemonRepository.getAll().forEach(pokemon => {
-    document.write(`${pokemon.name} (height: ${pokemon.height}) ${pokemon.height > 1.5 ? " - Wow, that's big!" : ""} <br>`);
+    pokemonRepository.addListItem(pokemon);
  });
