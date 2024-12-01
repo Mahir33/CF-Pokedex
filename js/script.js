@@ -23,7 +23,7 @@ let pokemonRepository = (function () {
     let button = document.createElement('button');
     button.innerText = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     button.classList.add('btn', 'btn-primary');
-    button.style.minWidth = '30%';
+    button.style.width = '100%';
 
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
