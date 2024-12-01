@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "start": "nodemon ./js/scripts.js"
+    "start": "nodemon js/script.js",
+    "minify-css": "cssnano css/styles.css dist/styles.min.css",
+    "minify-js": "terser js/script.js -o dist/script.min.js",
+    "build": "npm run minify-css && npm run minify-js"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +16,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "cssnano": "^7.0.6",
     "eslint": "^9.13.0",
-    "globals": "^15.11.0"
+    "globals": "^15.11.0",
+    "terser": "^5.36.0"
   }
 }

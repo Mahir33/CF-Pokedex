@@ -1,0 +1,14 @@
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .pokemon-list .list-group-item {
+    flex: 1 1 calc(33.333% - 1rem);
+    margin: 0.5rem;
+  }
+  
+  .pokemon-list .btn {
+    width: 100%;
+  }
