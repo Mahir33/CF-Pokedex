@@ -1,15 +1,37 @@
+/**
+ * Module for managing the Pokémon repository.
+ * @module pokemonRepository
+ */
 let pokemonRepository = (function () {
+  /**
+   * @type {Array} pokemonList - Array to store the Pokémon data.
+   */
   let pokemonList = [];
+  /**
+   * @type {string} apiUrl - URL to fetch the Pokémon data.
+   */
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+  /**
+   * Adds a Pokémon to the repository.
+   * @param {Object} pokemon - The Pokémon to add.
+   */
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
 
+  /**
+   * Gets all Pokémon from the repository.
+   * @returns {Array} List of all Pokémon.
+   */
   function getAll() {
     return pokemonList;
   }
 
+  /**
+   * Adds a Pokémon list item to the DOM.
+   * @param {Object} pokemon - The Pokémon to add to the list.
+   */
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
@@ -34,12 +56,20 @@ let pokemonRepository = (function () {
     pokemonList.appendChild(listItem);
   }
 
+  /**
+   * Shows the details of a Pokémon.
+   * @param {Object} pokemon - The Pokémon to show details for.
+   */
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       showModal(pokemon);
     });
   }
 
+  /**
+   * Loads the list of Pokémon from the API.
+   * @returns {Promise} A promise that resolves when the list is loaded.
+   */
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -59,6 +89,11 @@ let pokemonRepository = (function () {
       });
   }
 
+  /**
+   * Loads the details of a Pokémon from the API.
+   * @param {Object} item - The Pokémon to load details for.
+   * @returns {Promise} A promise that resolves when the details are loaded.
+   */
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -74,6 +109,10 @@ let pokemonRepository = (function () {
       });
   }
 
+  /**
+   * Shows a modal with the details of a Pokémon.
+   * @param {Object} pokemon - The Pokémon to show in the modal.
+   */
   function showModal(pokemon) {
     let modalTitle = document.querySelector('.modal-title');
     let modalBody = document.querySelector('.modal-body');
