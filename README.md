@@ -95,3 +95,8 @@ This project is licensed under the **MIT License**.
 
 **Mahir33**  
 [GitHub Profile](https://github.com/Mahir33)
+
+## Visual Overview
+
+![main](./assets/main.png)
+![modal](./assets/modal.png)
